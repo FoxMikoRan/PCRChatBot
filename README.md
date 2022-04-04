@@ -16,6 +16,8 @@ Hoshino与yobot已经是很成熟很好用的机器人，配置难度较低，�
 
 并未做太大改动，修改行为只是以稳定运行为目的进行参数修改，具体接口和实现方法均未作改动。只测试了一些常用的功能，后续功能需求均由第三方插件实现，功能冲突请阅读报错信息自行寻求解决方案。一些简易功能的实现是直接在原文件上进行的改动，如果有问题请联系我。
 
+一些不常用的功能没有测试，请参考help和帮助命令。
+
 ## 2.部署方法
 
 修改自[CentOS 下安装 HoshinoBot 和 yobot](http://cn.pcrbot.com/deploy-hoshinobot-on-centos/)，使用命令行依次执行即可。
@@ -77,10 +79,15 @@ pip3 install --upgrade pip
 # 创建并进入 go-cqhttp 目录
 cd ~&&mkdir go-cqhttp&&cd go-cqhttp
 
-# 下载最新版的压缩包，最新版可能存在登陆问题，可以考虑回退一个版本
+# 下载压缩包，最新版可能存在登陆问题，考虑回退一个版本
 wget https://github.com/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc1/go-cqhttp_linux_amd64.tar.gz
-# 或者
+# 推荐使用镜像站进行下载
+wget https://hub.fastgit.xyz/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc1/go-cqhttp_linux_amd64.tar.gz
+
+# 或者最新版
 wget https://github.com/Mrs4s/go-cqhttp/releases/download/v1.0.0-beta8-fix2/go-cqhttp_linux_amd64.tar.gz
+# 推荐使用镜像站进行下载
+wget https://hub.fastgit.xyz/Mrs4s/go-cqhttp/releases/download/v1.0.0-beta8-fix2/go-cqhttp_linux_amd64.tar.gz
 
 #解压
 tar xf go-cqhttp_linux_amd64.tar.gz
