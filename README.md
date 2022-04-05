@@ -1,6 +1,6 @@
 # PCRChatBot
 
-由[HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot)项目，添加安装收集到的部分插件（[来源](https://github.com/pcrbot)）而来的自用QQ机器人，对其中一些插件内容有修改。仅仅是自用，所以对于授权以及管理功能没有做添加和改动，不保证相关功能的稳定性和安全性。
+由[HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot)项目，搬运性质的添加安装收集到的部分插件（[来源](https://github.com/pcrbot)）而来的自用QQ机器人，对其中一些插件内容有修改。仅仅是自用，所以对于授权以及管理功能没有做添加和改动，不保证相关功能的稳定性和安全性。
 
 由于之前是部署在本地Windows平台上，现有需求将其移植到CentOS7.6轻量级服务器并服务于自用公会战群，且其他部署教程均有不同程度的不适配，所以留档以备后续维护。
 
@@ -249,13 +249,13 @@ nohup sh yobotg.sh &
 
 之后在浏览器中输入公网 ip:9222 即可访问 yobot 网页端，更多指令，[参照 yobot 官网](https://yobot.win/)
 
-## 3.部分设置
+## 3.其他
 
 ### 1.插件管理
 
 额外插件的安装方法基本一致，通用方法是在modules文件夹中放入插件，对设置文件进行配置后，打开`hoshino/config/__bot__.py`，在`MODULES_ON = {}`中仿照格式填入modules文件夹中插件所属的文件夹名，在文件夹名前方#进行注释即可暂时屏蔽指定插件。（请逐个添加插件以免出现bug难以解决）
 
-### 2.插件设置
+### 2.引用的插件设置
 
 已经安装的部分插件需要额外配置：
 
@@ -303,21 +303,146 @@ nohup sh yobotg.sh &
 
 与3功能近似但是更详细，没有需求所以注释掉了，配置方法请参考上方链接
 
+#### 5. [pcr_calculator_plus](https://github.com/watermellye/pcr_calculator_plus)
+
+无需设置
+
+##### 输入方法
+
+###### 指令前缀
+
+`合刀`, `cal`, `尾刀计算`。
+
+###### 指令内容
+
+- boss剩余血量和两刀伤害（可只输一刀或不输入）
+- boss血量、造成伤害（缺省为boss血量）、打死时间、期望时间（可无）
+
+时间输入后缀为s，范围[0,90)的正整数。
+
+血量输入支持[|w|W|万]后缀；若无后缀，数值小于50000的将被10000；若输入表达式，将根据eval转换。
+
+例：`cal 700w 400万 5000000` / `合刀 2000-87-49 2000 30s 61s`
+
+#### 6. [Simple1kill2](https://github.com/CCA2878/Simple1kill2)
+
+无需设置
+
+##### 使用方法
+
+群聊中输入：一穿二 剩余秒数 BOSS血量 目标补偿（非必需）。如：“一穿二 34 2000”或“一穿二 34 2000 56”。
+
+#### 7. [pcr_almanac](https://github.com/azmiao/pcr_almanac)
+
+无需设置
+
+##### 功能
+
+```
+目前就一个命令：
+[签到] 签到看黄历
+```
+
+#### 8. [tarot_hoshinot](https://github.com/haha114514/tarot_hoshino)
+
+无需设置
+
+##### 用法
+
+群内发送 塔罗牌 即可使用。
+
+#### 9. [lifeRestart_bot](https://github.com/DaiShengSheng/lifeRestart_bot)
+
+无需设置
+
+##### 指令
+
+| 命令                | 说明     | 例      |
+| ------------------- | -------- | ------- |
+| /remake 或 人生重来 | 触发指令 | /remake |
+
+#### 10. [pcr_scrimmage](https://github.com/eggggi/pcr_scrimmage)
+
+无需设置
+
+##### 指令表
+
+| 指令              | 说明                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| 大乱斗规则        | 查看大乱斗相关规则                                           |
+| 大乱斗角色        | 查看所有可用角色                                             |
+| 角色详情 [角色名] | 查看角色的基础属性和技能                                     |
+| 结束大乱斗        | 可以强制结束正在进行的大乱斗游戏（该命令只有管理员和房主可用） |
+
+> [ ] 表示内部的文字为意译, 实际发指令时请删去 [ ]
+
+| 创建阶段指令 | 说明       |
+| ------------ | ---------- |
+| 创建大乱斗   | 创建大乱斗 |
+| 加入大乱斗   | 加入大乱斗 |
+| 开始大乱斗   | 开始大乱斗 |
+
+| 选择角色阶段指令 | 说明                                   |
+| ---------------- | -------------------------------------- |
+| [角色名]         | 如：**凯露 / 黑猫** （名字和外号都行） |
+
+> [ ] 表示内部的文字为意译, 实际发指令时请删去 [ ]
+
+| 对战阶段指令   | 说明                                                         |
+| -------------- | ------------------------------------------------------------ |
+| 丢色子         | 丢色子                                                       |
+| [技能编号]@xxx | 如：1 @xxx (发送技能编号并@目标，如果这个技能不需要指定目标，直接发送技能编号即可) |
+| 查看属性       | 可查看自己当前角色详细属性                                   |
+| 投降 / 认输    | 投降 / 认输                                                  |
+
+> [ ] 表示内部的文字为意译, 实际发指令时请删去 [ ]
+
+##### 自定义
+
+游戏内的跑道事件、角色、技能效果都可自定义，详情看 runway_case.py 和 role.py 的顶部注释
+
+#### 11. [xcw](https://github.com/zangxx66/HoshinoBot-xcwRecord)
+
+无需设置
+
+##### 指令列表
+
+@你的机器人 骂我	
+
+仅支持群聊
+
+#### 12. [buy_potion_reminder](https://github.com/pcrbot/HoshinoBuyPotionReminder)
+
+无需设置
+
+#### 13. [pcr_calendar](https://github.com/zyujs/pcr_calendar)
+
+无需设置
+
+##### 指令列表
+
+日历 : 查看本群订阅服务器日历
+[国台日]服日历 : 查看指定服务器日程
+[国台日]服日历 on/off : 订阅/取消订阅指定服务器的日历推送
+日历 time 时:分 : 设置日历推送时间
+日历 status : 查看本群日历推送设置
+日历 cardimage : (go-cqhttp限定)切换是否使用cardimage模式发送日历图片
+
 ## 4.报错归档
 
-#### NameError: name 'xxx' is not defined
+### NameError: name 'xxx' is not defined
 
 在报错提示行加上（" "）或者（' '）
 
 python版本问题
 
-#### ffmpeg: Executable not found on machine
+### ffmpeg: Executable not found on machine
 
 将ffmpeg复制到python根目录下
 
 检测机制的问题，执行时只会检测python根目录
 
-#### go-cqhttp网络环境报错
+### go-cqhttp网络环境报错
 
 根据提示修改dns为114.114.114.115
 
@@ -327,13 +452,13 @@ vi /etc/resolv.conf
 nameserver 114.114.114.115
 ```
 
-#### ImportError: cannot import name 'xxx' from 'markupsafe'
+### ImportError: cannot import name 'xxx' from 'markupsafe'
 
 改用markupsafe2.0.1版本
 
 新版本语法变化
 
-#### ModuleNotFoundError:No module named ‘xxx’
+### ModuleNotFoundError:No module named ‘xxx’
 
 使用pip命令退回相关旧版本
 

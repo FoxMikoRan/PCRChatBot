@@ -1,0 +1,47 @@
+{
+    "983514250": {
+        "actions": "身着痛衣在街上一边跳一边走",
+        "characters": "智",
+        "fortune": "大凶",
+        "position": "面向南方",
+        "prefertime": "12时47分28秒",
+        "suitable": [
+            "打hard本",
+            "碎片掉落率100%"
+        ],
+        "unsuitable": [
+            "推图",
+            "被boss秒了"
+        ]
+    },
+    "919152539": {
+        "actions": "拍手祈祷",
+        "characters": "优衣",
+        "fortune": "小凶",
+        "position": "面向南方",
+        "prefertime": "10时31分0秒",
+        "suitable": [
+            "抽卡",
+            "单抽出奇迹！"
+        ],
+        "unsuitable": [
+            "推图",
+            "被boss秒了"
+        ]
+    },
+    "448602739": {
+        "actions": "戴上臭鼬头面具或头枕",
+        "characters": "惠理子",
+        "fortune": "大凶",
+        "position": "面向东南方",
+        "prefertime": "16时3分41秒",
+        "suitable": [
+            "打公会战",
+            "auto三刀吃饱饱睡好好"
+        ],
+        "unsuitable": [
+            "睡觉",
+            "睡太沉头疼了"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "753106444": {
+    "server_list": [],
+    "hour": 8,
+    "minute": 0,
+    "cardimage": false
+  },
+  "805420551": {
+    "server_list": [
+      "cn",
+      "jp"
+    ],
+    "hour": 8,
+    "minute": 0,
+    "cardimage": false
+  }
+}
