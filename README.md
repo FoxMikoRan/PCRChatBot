@@ -46,32 +46,33 @@ yum -y install wget zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-de
 yum install ffmpeg ffmpeg-devel 
 ```
 
-### 2.安装Python3.7.1
-
-先使用cd命令进到合适的路径。
+### 2.安装Python3.8
 
 ```bash
-# 使用华为镜像下载 python3.7.1
-wget https://mirrors.huaweicloud.com/python/3.7.1/Python-3.7.1.tgz
+# 安装依赖
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel gcc
 
 # 解压
-tar xf Python-3.7.1.tgz
+xz -d Python-3.8.0.tar.xz
+tar -xvf Python-3.8.0.tar
 
-# 进入文件夹
-cd Python-3.7.1
+# 创建文件夹
+mkdir /usr/local/python3.8.0
 
-# 编译安装
-./configure
+#编译安装
+cd Python-3.8.0
+./configure --with-ssl --prefix=/usr/local/python3.8.0
+$>make && make install
 
-make&&make install
+# 创建python3.8和pip3.8软链接
+ln -s /usr/local/python3.8.0/bin/python3.8 /usr/bin/python3.8
+ln -s /usr/local/python3.8.0/bin/pip3.8 /usr/bin/pip3.8
 
-pip3 install --upgrade pip
-
-#可能用到的命令
-/usr/local/bin/pip3 install --upgrade pip
+# 升级pip3
+pip3.8 install --upgrade pip
 ```
 
-后续报错不少都与Python3.7.1相关的环境配置有关，换用第三方插件可能需要更高的版本，兼容性请自行测试。
+后续报错不少都与Python3.8相关的环境配置有关，换用第三方插件可能需要更高的版本，兼容性请自行测试。
 
 ### 3.安装go-cqhttp
 
@@ -469,3 +470,11 @@ nameserver 114.114.114.115
 使用命令时额外添加`--target=报错路径`
 
 未指定路径
+
+
+
+
+
+
+
+unset http_proxy ,去除环境变量
