@@ -3,7 +3,6 @@ aiocqhttp~=1.4.0
 lxml>=4.4.1
 pytz>=2019.3
 sogou_tr_free>=0.0.6
-zhconv>=1.4.0
 matplotlib>=3.2.0
 numpy>=1.18.0
 beautifulsoup4>=4.9.0
@@ -12,15 +11,12 @@ tinydb>=4.0
 peony-twitter[all]~=1.1.7
 MakeupSafe 2.0.1
 APScheduler~=3.6
-requests~=2.22
 aiohttp>=3.6.1
 opencc-python-reimplemented~=0.1.5
 feedparser~=6.0
-beautifulsoup4~=4.8
 arrow~=0.14
 peewee~=3.13
 expiringdict>=1.2.0
-aiocqhttp~=0.6
 quart~=0.6.15
 jinja2~=3.0.1
 msgpack_python==0.5.6
