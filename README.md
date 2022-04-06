@@ -464,3 +464,8 @@ nameserver 114.114.114.115
 
 新版本兼容问题
 
+### Requirement already satisfied: pip in xxxxx/xxxx/
+
+使用命令时添加--target=报错路径
+
+未指定路径
