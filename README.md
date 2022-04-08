@@ -80,12 +80,12 @@ pip3.8 install --upgrade pip
 # 创建并进入 go-cqhttp 目录
 cd ~&&mkdir go-cqhttp&&cd go-cqhttp
 
-# 下载压缩包，最新版可能存在登陆问题，考虑回退一个版本
+# 下载压缩包，最新版可能存在登陆问题
 wget https://github.com/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc1/go-cqhttp_linux_amd64.tar.gz
 # 推荐使用镜像站进行下载
 wget https://hub.fastgit.xyz/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc1/go-cqhttp_linux_amd64.tar.gz
 
-# 或者最新版
+# 或者考虑回退一个版本
 wget https://github.com/Mrs4s/go-cqhttp/releases/download/v1.0.0-beta8-fix2/go-cqhttp_linux_amd64.tar.gz
 # 推荐使用镜像站进行下载
 wget https://hub.fastgit.xyz/Mrs4s/go-cqhttp/releases/download/v1.0.0-beta8-fix2/go-cqhttp_linux_amd64.tar.gz
@@ -147,6 +147,39 @@ servers:
 推荐先使用`./go-cqhttp` 命令试运行排除报错，再使用 `nohup ./go-cqhttp &` 命令后台运行；`nohup.out`文件会逐渐增大，一般没有清理设定会占用巨量磁盘空间。 
 
 验证码登录时，记得把命令行界面调大点不然显示不全无法扫码。
+
+### 3.1 防止风控
+
+默认的登陆模式很容易被风控，如果被风控了的话需要一些额外操作：
+
+使用真实安卓手机登陆bot的qq号，开启设备锁，然后编辑config.yml
+
+`vim config.yml`
+
+```bash
+account:
+  uin: 1233456 # 你的 bot 的 QQ 账号
+  password: '' # 被风控时填写密码登陆
+```
+
+编辑device.json
+
+```bash
+vim device.json
+```
+
+```bash
+# 修改登录模式为安卓手机
+"protocol": 1,
+```
+
+删除session.token
+
+`rm session.token`
+
+重新运行go-cqhttp，按提示登陆
+
+`./go-cqhttp`
 
 ### 4.安装 HoshinoBot
 
@@ -445,12 +478,12 @@ python版本问题
 
 ### go-cqhttp网络环境报错
 
-根据提示修改dns为114.114.114.115
+根据提示修改dns为114.114.114.114
 
 ```bash
 vi /etc/resolv.conf
 
-nameserver 114.114.114.115
+nameserver 114.114.114.114
 ```
 
 ### ImportError: cannot import name 'xxx' from 'markupsafe'
@@ -471,10 +504,37 @@ nameserver 114.114.114.115
 
 未指定路径
 
+### len out of range
+
+使用旧版本go-cqhttp
+
+新版go-cqhttp不适配
 
 
 
+## 5.常用命令
 
 
 
-unset http_proxy ,去除环境变量
+```bash
+# 去除代理环境变量
+unset http_proxy 
+
+# 查看后台
+ps -def | grep "go-cqhttp"
+
+# 结束进程
+kill -9  进程号PID
+
+# 编辑插件
+vim /root/PCRChatBot/hoshino/config/__bot__.py
+
+# 调试插件
+python3.8 /root/PCRChatBot/run.py
+
+# 使用代理运行
+proxychains4 python3.8 run.py
+```
+
+
+
