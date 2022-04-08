@@ -393,7 +393,7 @@ async def get_spec_setu(bot, ev):
 		await bot.send(ev, 'p站id无效,应为8位数字id哦~')
 
 
-@sv.scheduled_job('interval', minutes=10)
+@sv.scheduled_job('interval', minutes=50)
 async def fetch_setu_process():
 	await fetch_process()
 
